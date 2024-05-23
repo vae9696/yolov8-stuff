@@ -1,0 +1,8 @@
+task: detect
+path: 'E:/Anacondaa/envs/yv8/CodeSave/yov8/ultralytics-main/CodeSavePlace/data/dataset'             # 数据集的根路径
+train: 'images/train'           # 训练集的相对路
+val: 'images/val'             # 验证集的相对路径
+device: 0
+nc: 3
+
+names: ['Egg','Vegetable','Bakedgoods']

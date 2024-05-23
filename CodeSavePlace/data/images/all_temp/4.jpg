@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Error>
+  <Code>NoSuchBucket</Code>
+  <Message>The specified bucket does not exist.</Message>
+  <RequestId>664F340D8A8E403137A4DFEF</RequestId>
+  <HostId>image.baidu.com</HostId>
+  <BucketName>tos-cn-i-0813c001</BucketName>
+  <EC>0015-00000101</EC>
+  <RecommendDoc>https://api.aliyun.com/troubleshoot?q=0015-00000101</RecommendDoc>
+</Error>
