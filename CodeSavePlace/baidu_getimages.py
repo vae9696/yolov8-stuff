@@ -50,7 +50,7 @@ def SaveImages(inputurl,user_agent,save_path,save_name):
     except:
         print("Conntect WRONG!!!:{i} ".format(i = url))
 
-def Get_baidu_images_url(keyword,pages_number,save_path):
+def Get_baidu_images_url(keyword,pages_number,save_path,enkeyword):
     temp_key = keyword
     keyword = urllib.parse.quote(keyword) #在转换成URL编码后，密文的字母都为大写
     user_agent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/125.0.0.0 Safari/537.36 Edg/125.0.0.0"
@@ -83,7 +83,7 @@ def Get_baidu_images_url(keyword,pages_number,save_path):
             except:
                 result = cj
             for j in range(0,len(result['data'])-1):
-                save_name = str(loop_number) + '.jpg'
+                save_name = str(loop_number) + "-{key}.jpg".format(key = enkeyword)
                 loop_number+=1
                 SaveImages(result['data'][j]['thumbURL'],user_agent,save_path,save_name)
             print("{name} dow {x}/{y}".format(name = temp_key, x = i, y = pages_number))
@@ -106,7 +106,7 @@ def Get_baidu_images_url(keyword,pages_number,save_path):
         #print(url)
         #print(len(result['data']))
         for i in range(0,len(result['data'])-1):
-            save_name = str(i+1) + '.jpg'
+            save_name = str(loop_number) + "-{key}.jpg".format(key = enkeyword)
             SaveImages(result['data'][i]['thumbURL'],user_agent,save_path,save_name)
         response.close()
 
@@ -118,7 +118,8 @@ Thread1 = threading.Thread(target=Get_baidu_images_url,
                            kwargs={
                                  "keyword" : "巧克力",
                                  "pages_number" : 7,
-                                 "save_path" : 'CodeSavePlace\data\images\Chocolate'
+                                 "save_path" : 'CodeSavePlace\data\images\Chocolate',
+                                 "enkeyword": "Chocolate"
                              }
                            )
                            
@@ -126,7 +127,8 @@ Thread2 = threading.Thread(target=Get_baidu_images_url,
                            kwargs={
                                  "keyword" : "薯片",
                                  "pages_number" : 7,
-                                 "save_path" : 'CodeSavePlace\data\images\Pot_chip'
+                                 "save_path" : 'CodeSavePlace\data\images\Pot_chip',
+                                 "enkeyword": "Pot_chip"
                              }
                            )
 
@@ -134,7 +136,8 @@ Thread3 = threading.Thread(target=Get_baidu_images_url,
                            kwargs={
                                  "keyword" : "米饭",
                                  "pages_number" : 7,
-                                 "save_path" : r'CodeSavePlace\data\images\Rice'
+                                 "save_path" : r'CodeSavePlace\data\images\Rice',
+                                 "enkeyword": "Rice"
                              }
                            )
 
@@ -142,7 +145,8 @@ Thread4 = threading.Thread(target=Get_baidu_images_url,
                            kwargs={
                                  "keyword" : "小泡芙食物",
                                  "pages_number" : 7,
-                                 "save_path" : r'CodeSavePlace\data\images\Popfu'
+                                 "save_path" : r'CodeSavePlace\data\images\Popfu',
+                                 "enkeyword": "Popfu"
                              }
                            )    
 
@@ -150,7 +154,8 @@ Thread5 = threading.Thread(target=Get_baidu_images_url,
                            kwargs={
                                  "keyword" : "香蕉",
                                  "pages_number" : 7,
-                                 "save_path" : r'CodeSavePlace\data\images\Banana'
+                                 "save_path" : r'CodeSavePlace\data\images\Banana',
+                                 "enkeyword": "Banana"
                              }
                            )
 
@@ -158,14 +163,15 @@ Thread6 = threading.Thread(target=Get_baidu_images_url,
                            kwargs={
                                  "keyword" : "蛋糕",
                                  "pages_number" : 7,
-                                 "save_path" : r'CodeSavePlace\data\images\Cake'
+                                 "save_path" : r'CodeSavePlace\data\images\Cake',
+                                 "enkeyword": "Cake"
                              }
                            )
 
-#Thread1.start()
-#Thread2.start()
-#Thread3.start()
-#Thread4.start()
-#Thread5.start()
-#Thread6.start()
+Thread1.start()
+Thread2.start()
+Thread3.start()
+Thread4.start()
+Thread5.start()
+Thread6.start()
 
