@@ -76,9 +76,11 @@ def Get_baidu_images_url(keyword,pages_number,save_path):
         for i in range(0,10):
             save_name = str(i+1) + '.jpg'
             try:
-                SaveImages(decode_url(result['data'][i]['objURL']),headers,save_path,save_name)
+                print(decode_url(result['data'][i]['objURL']))
+                #SaveImages(decode_url(result['data'][i]['objURL']),headers,save_path,save_name)
             except:
                 print("Save Wrong,skip one round")
+        response.close()
     
 
 
