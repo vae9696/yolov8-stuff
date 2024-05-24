@@ -114,10 +114,25 @@ def Get_baidu_images_url(keyword,pages_number,save_path,enkeyword):#搜索关键
             loop_number+=1
         response.close()
 
-    
+def Threading_Create(keyword,pages_number,save_path,enkeyword):#搜索关键字，页数，储存路径，图片名字后缀
+    cthreading = threading.Thread(target=Get_baidu_images_url,
+                           kwargs={
+                                 "keyword" : keyword,
+                                 "pages_number" : pages_number,
+                                 "save_path" : save_path,
+                                 "enkeyword": enkeyword
+                             }
+                           )
+    cthreading.start()
+    #savepath = 'CodeSavePlace\data\images\Chocolate'
+    #enkeyword = "Chocolate"
 
-#Get_baidu_images_url("薯片",1,'CodeSavePlace\data\images\Chocolate')
-    
+def main(): #主函数，自己手动添加参数调用Threading_Create()来下载百度图片
+    #搜索关键字，页数，储存路径，图片名字后缀
+    Threading_Create("巧克力",1,'CodeSavePlace\data\images\Chocolate',"Chocolate")
+    Threading_Create("薯片",1,'CodeSavePlace\data\images\Pot_chip',"Pot_chip")
+
+"""
 Thread1 = threading.Thread(target=Get_baidu_images_url,
                            kwargs={
                                  "keyword" : "巧克力",
@@ -179,3 +194,4 @@ Thread4.start()
 Thread5.start()
 Thread6.start()
 
+"""   
