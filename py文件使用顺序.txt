@@ -1,0 +1,6 @@
+1.baidu_getimages.py
+2.label_delete_image.py
+3.datasplit.py
+4.main.py
+
+#maybe 5. predict.py?(if u want to do that...)
